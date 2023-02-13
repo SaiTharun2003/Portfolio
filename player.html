@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Video Website</title>
+    <link rel="stylesheet" href="player.css">
+    <script src="script.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+
+<body>
+    <div id="place">
+        <div id="container">
+            <video id="video" src="" controls></video>
+            <p id="title">Title</p>
+            <p id="desc"></p>
+            <a href="#" id="link"></a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const videoSrc = localStorage.getItem("videoSrc");
+            const title_txt = localStorage.getItem("title");
+            const desc_txt = localStorage.getItem("desc");
+            const link_txt = localStorage.getItem("link");
+
+            if (videoSrc) {
+                const video = document.getElementById("video");
+                video.setAttribute("src", videoSrc);
+            }
+
+            if(title_txt){
+                const title = document.getElementById("title");
+                title.innerText = title_txt;
+            }
+
+            if(desc_txt){
+                const desc = document.getElementById("desc");
+                desc.innerText = desc_txt;
+            }
+            
+            if(link_txt)
+            {
+                const link = document.getElementById("link");
+                console.log(link_txt);
+                link.setAttribute("href", link_txt);
+                link.innerText = "Click here to redirect to my portfolio webpage";
+            }
+        });
+    </script>
+    
+</body>
+</html>
